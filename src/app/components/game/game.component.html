@@ -1,7 +1,10 @@
 
 <div class="container w-sm-100 w-md-75 w-50">
   <div class="d-flex flex-sm-column">
-    <div class="w-50 mt-2 me-4 bg-white h-50 text-center align-self-center border-score mb-sm-3">{{ score }}</div>
-    <app-cards [cards]="cards" [level]="level" (matchFound)="updateScore(2)"></app-cards>
+    <div class="d-flex flex-row justify-content-between w-100">
+      <div class="w-25 mt-2 me-4 bg-white h-50 text-center align-self-center border-score mb-sm-3">{{ score }}</div>
+      <div class="timer bg-light">{{ countdown }}</div>
+    </div>
+    <app-cards [cards]="cards" [level]="level" (matchFound)="updateScore(2)" (startTimer)="startTimer()" (resetTimer)="resetTimer()"></app-cards>
   </div>
 </div>

@@ -47,7 +47,11 @@ export class CardsComponent implements OnInit {
 
   @Input() cards!: Card[];
   @Input() level!: string;
+  @Input() isGameOver!: boolean;
   @Output() matchFound = new EventEmitter<number>();
+  @Output() startTimer = new EventEmitter<number>();
+  @Output() resetTimer = new EventEmitter<number>();
+
 
   currentCard!: Card | null;
   flippedCards: Card[] = []; // Para almacenar cartas volteadas
@@ -62,6 +66,7 @@ export class CardsComponent implements OnInit {
   ngOnInit() {
 
     this.shuffleCards();
+    this.startTimer.emit();
 
   }
 
@@ -98,6 +103,7 @@ export class CardsComponent implements OnInit {
           return c
         });
 
+
         Swal.fire({
           title: "You WON, Congrats!!",
           showConfirmButton: true,
@@ -127,6 +133,7 @@ export class CardsComponent implements OnInit {
             this.cards = this._showCardsService.getCards();
 
             this.matchFound.emit(-20);
+            this.resetTimer.emit()
             this.shuffleCards();
 
           } else {
