@@ -61,9 +61,7 @@ export class CardsComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log('Before Sort: ', this.cards);
     this.shuffleCards();
-    console.log('After Sort: ', this.cards);
 
   }
 
@@ -94,6 +92,12 @@ export class CardsComponent implements OnInit {
       const isGameOver = this.cards.every((c) => c.state === 'matched')
 
       if (isGameOver) {
+
+        this.cards.map((c) => {
+          c.state = State.DEFAULT
+          return c
+        });
+
         Swal.fire({
           title: "You WON, Congrats!!",
           showConfirmButton: true,
@@ -118,23 +122,17 @@ export class CardsComponent implements OnInit {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
             Swal.fire("Ready!", "", "success");
-            this.cards.map((c) => {
-              c.state = State.DEFAULT
-              return c
-            });
+            console.log('Before Reset: ', this.cards);
             this._showCardsService.resetCards();
-            this.cards.map((c) => {
-              c.state = State.DEFAULT
-              return c
-            });
             this.cards = this._showCardsService.getCards();
+
+
             this.shuffleCards();
+
           } else {
             this._showCardsService.setCards(this.cards);
-            this.cards.map((c) => {
-              c.state = State.DEFAULT
-              return c
-            });
+
+            this.flippedCards = [];
             this.router.navigate(['cards']);
           }
         });
