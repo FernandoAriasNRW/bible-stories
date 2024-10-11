@@ -123,6 +123,10 @@ export class CardsComponent implements OnInit {
               return c
             });
             this._showCardsService.resetCards();
+            this.cards.map((c) => {
+              c.state = State.DEFAULT
+              return c
+            });
             this.cards = this._showCardsService.getCards();
             this.shuffleCards();
           } else {
