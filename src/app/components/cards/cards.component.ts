@@ -126,7 +126,7 @@ export class CardsComponent implements OnInit {
             this._showCardsService.resetCards();
             this.cards = this._showCardsService.getCards();
 
-
+            this.matchFound.emit(-20);
             this.shuffleCards();
 
           } else {
