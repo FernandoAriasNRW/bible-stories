@@ -1,7 +1,7 @@
 <div class="row g-1">
   @for(card of cards; track card.id){
     @if(!gameOver) {
-      <div [id]="card.id" class="card col-4" (click)="cardClicked(card)" [@cardFlip]="card.state">
+      <div [id]="card.id" class="card col-md-4 col-sm-12" (click)="cardClicked(card)" [@cardFlip]="card.state">
           <div class="face back align-content-center">
             <div class="h2 text-center">{{ card.order }}</div>
           </div>
