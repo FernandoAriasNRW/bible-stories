@@ -1,0 +1,32 @@
+<div class="row g-1">
+  @for(card of cards; track card.id){
+    @if(!gameOver) {
+      <div [id]="card.id" class="card col-4" (click)="cardClicked(card)" [@cardFlip]="card.state">
+          <div class="face back align-content-center">
+            <div class="h2 text-center">{{ card.order }}</div>
+          </div>
+          <div class="face front align-content-center">
+            @if (card.type === 'front') {
+            <img [src]='"../../../assets/images/" + card.image' />
+            } @else if (level === 'easy') {
+            <img [src]='"../../../assets/images/" + card.image' />
+            } @else if (level === 'normal'){
+            <h5 class="text-center">{{ card.name }}</h5>
+            } @else {
+            <h5 class="text-center">{{ card.reference }}</h5>
+            }
+          </div>
+      </div>
+    } @else if(gameOver) {
+      <div [id]="card.id" class="card col-4">
+        <div class="face back align-content-center">
+          @if (card.type === 'front') {
+            <img class="img-thumbnail" [src]='"../../../assets/images/" + card.image' />
+            } @else {
+            <h5 class="card-title text-center">{{ card.reference }}</h5>
+            }
+        </div>
+      </div>
+    }
+  }
+</div>

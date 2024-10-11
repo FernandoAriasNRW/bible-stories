@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg bg-dark mb-3">
+  <div class="container-fluid d-flex flex-row justify-content-between">
+    <a class="navbar-brand text-light ms-4">Bible Story</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex flex-row justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0 me-4">
+        <li class="nav-item">
+          <a class="nav-link text-light" aria-current="page" [routerLink]="['/']"
+            routerLinkActive="router-link-active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" [routerLink]="['/history']" routerLinkActive="router-link-active">History</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
