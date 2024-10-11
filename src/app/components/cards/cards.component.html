@@ -11,9 +11,9 @@
             } @else if (level === 'easy') {
             <img [src]='"../../../assets/images/" + card.image' />
             } @else if (level === 'normal'){
-            <h5 class="text-center">{{ card.name }}</h5>
+            <h5 class="text-center font-size">{{ card.name }}</h5>
             } @else {
-            <h5 class="text-center">{{ card.reference }}</h5>
+            <h5 class="text-center font-size">{{ card.reference }}</h5>
             }
           </div>
       </div>
@@ -23,7 +23,7 @@
           @if (card.type === 'front') {
             <img class="img-thumbnail" [src]='"../../../assets/images/" + card.image' />
             } @else {
-            <h5 class="card-title text-center">{{ card.reference }}</h5>
+            <h5 class="card-title text-center font-size">{{ card.reference }}</h5>
             }
         </div>
       </div>

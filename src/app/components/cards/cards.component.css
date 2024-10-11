@@ -42,8 +42,12 @@
 
 @media (max-width: 900px) {
   .card {
-    height: 6rem !important;
-    width: 6rem !important;
+    height: 8rem !important;
+    width: 8rem !important;
+  }
+
+  .font-size {
+    font-size: medium;
   }
 
   .row-sm {
@@ -58,6 +62,11 @@
     width: 5.2rem !important;
   }
 
+
+  .font-size {
+    font-size: medium;
+  }
+
   .row-sm {
     padding: 0.5rem !important;
   }
@@ -67,15 +76,24 @@
   .row-sm {
     padding: 1.5rem !important;
   }
+
+  .font-size {
+    font-size: small;
+  }
+
 }
 
 @media (max-width: 400px) {
   .card {
-    height: 4.5rem !important;
-    width: 4.5rem !important;
+    height: 4rem !important;
+    width: 4rem !important;
   }
 
   .row-sm {
     padding: 1.2rem !important;
+  }
+
+  .font-size {
+    font-size: small;
   }
 }
