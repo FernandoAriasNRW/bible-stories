@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output, output } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Card, State } from '../../shared/interfaces/card.interface';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+
+import { Card, State } from '../../shared/interfaces/card.interface';
+import { ShowCardsService } from '../../services/showCards/show-cards.service';
 
 @Component({
   selector: 'app-cards',
@@ -51,7 +54,10 @@ export class CardsComponent implements OnInit {
   canFlip: boolean = true; // Para evitar que se volteen cartas mientras se verifica un match
   gameOver: boolean = false;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private _showCardsService: ShowCardsService,
+  ) { }
 
   ngOnInit() {
 
@@ -89,8 +95,11 @@ export class CardsComponent implements OnInit {
 
       if (isGameOver) {
         Swal.fire({
-          title: "Custom animation with Animate.css",
-          
+          title: "You WON, Congrats!!",
+          showConfirmButton: true,
+          showCancelButton: true,
+          confirmButtonText: 'Play Again',
+          cancelButtonText: 'View cards',
           showClass: {
             popup: `
               animate__animated
@@ -105,9 +114,21 @@ export class CardsComponent implements OnInit {
               animate__faster
             `
           }
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            Swal.fire("Ready!", "", "success");
+            this.shuffleCards();
+          } else {
+            this._showCardsService.setCards(this.cards);
+            this.cards.map((c) => {
+              c.state = State.DEFAULT
+              return c
+            });
+            this.router.navigate(['cards']);
+          }
         });
 
-        this.gameOver = true;
       }
 
     } else {
@@ -152,10 +173,15 @@ export class CardsComponent implements OnInit {
     this.cards.sort((a, b) => a.order - b.order)
 
     this.cards = this.cards.map((c, i) => {
-      c.order = i+1;
+      c.order = i + 1;
       return c;
     });
 
+  }
+
+  showCards(){
+    this._showCardsService.setCards(this.cards);
+    this.router.navigate(['cards']);
   }
 
 }

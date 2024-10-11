@@ -1,0 +1,22 @@
+
+
+<div class="container w-sm-100 w-md-75 w-50">
+  <div class="d-flex flex-sm-column align-items-center">
+    <div class="row g-1 row-sm">
+      @for(card of cards; track card.id){
+          <div [id]="card.id" class="card col-4">
+            <div class="face back align-content-center">
+              @if (card.type === 'front') {
+                <img class="img-thumbnail" [src]='"../../../assets/images/" + card.image' />
+                } @else {
+                <h5 class="card-title text-center font-size">{{ card.reference }}</h5>
+                }
+            </div>
+          </div>
+      }
+    </div>
+
+    <button class="btn btn-light w-50 mt-2 mb-2" [routerLink]="['/']" routerLinkActive="router-link-active"> Play Again </button>
+
+  </div>
+</div>

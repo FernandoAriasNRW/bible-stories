@@ -1,0 +1,145 @@
+:host {
+  display: block;
+  perspective: 600px;
+}
+
+.card {
+  box-shadow: 10px 10px 43px -18px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  border: 1px solid darkgray;
+  border-width: thick;
+  border-style: double;
+  height: 7.5rem;
+  width: 7.5rem;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.face {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  backface-visibility: hidden;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+
+.img-thumbnail {
+  padding: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .card {
+    height: 8rem !important;
+    width: 8rem !important;
+  }
+
+  .font-size {
+    font-size: medium;
+  }
+
+  .row-sm {
+    padding: 2rem !important;
+  }
+}
+
+
+@media (max-width: 760px) {
+  .card {
+    height: 5.2rem !important;
+    width: 5.2rem !important;
+  }
+
+
+  .font-size {
+    font-size: medium;
+  }
+
+  .row-sm {
+    padding: 0.5rem !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .row-sm {
+    padding: 1.5rem !important;
+  }
+
+  .font-size {
+    font-size: small;
+  }
+
+}
+
+@media (max-width: 400px) {
+  .card {
+    height: 4rem !important;
+    width: 4rem !important;
+  }
+
+  .row-sm {
+    padding: 1.2rem !important;
+  }
+
+  .font-size {
+    font-size: small;
+  }
+}
+
+.container {
+  width: 75%;
+  height: 75%;
+}
+
+.border-score {
+  border: 2px solid black;
+}
+
+
+@media (max-width: 950px) {
+
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .w-md-75 {
+    width: 80% !important;
+    margin: 0 !important;
+  }
+}
+
+
+@media (max-width: 770px) {
+  .flex-sm-column {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mb-sm-3 {
+    margin-bottom: 1rem !important;
+  }
+
+  .w-sm-100 {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
