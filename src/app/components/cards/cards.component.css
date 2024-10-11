@@ -39,3 +39,15 @@
 .img-thumbnail {
   padding: 0 !important;
 }
+
+
+@media (max-width: 770px) {
+  .card {
+    height: 5rem !important;
+    width: 5rem !important;
+  }
+
+  .row-sm {
+    padding: 0.5rem !important;
+  }
+}

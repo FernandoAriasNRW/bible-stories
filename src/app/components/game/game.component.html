@@ -1,7 +1,7 @@
 
-<div class="container w-50">
-  <div class="d-flex">
-    <div class="w-50 mt-2 me-4 bg-white h-50 text-center border-score">{{ score }}</div>
+<div class="container w-sm-100 w-50">
+  <div class="d-flex flex-sm-column">
+    <div class="w-50 mt-2 me-4 bg-white h-50 text-center align-self-center border-score mb-sm-3">{{ score }}</div>
     <app-cards [cards]="cards" [level]="level" (matchFound)="updateScore(2)"></app-cards>
   </div>
 </div>
