@@ -118,6 +118,12 @@ export class CardsComponent implements OnInit {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
             Swal.fire("Ready!", "", "success");
+            this.cards.map((c) => {
+              c.state = State.DEFAULT
+              return c
+            });
+            this._showCardsService.resetCards();
+            this.cards = this._showCardsService.getCards();
             this.shuffleCards();
           } else {
             this._showCardsService.setCards(this.cards);

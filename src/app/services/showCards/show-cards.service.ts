@@ -19,4 +19,7 @@ export class ShowCardsService {
     this._cards = cards
   }
 
+  resetCards(){
+    this._cards = cards;
+  }
 }
