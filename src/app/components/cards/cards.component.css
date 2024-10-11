@@ -40,8 +40,19 @@
   padding: 0 !important;
 }
 
+@media (max-width: 900px) {
+  .card {
+    height: 6rem !important;
+    width: 6rem !important;
+  }
 
-@media (max-width: 770px) {
+  .row-sm {
+    padding: 2rem !important;
+  }
+}
+
+
+@media (max-width: 760px) {
   .card {
     height: 5.2rem !important;
     width: 5.2rem !important;
@@ -49,5 +60,22 @@
 
   .row-sm {
     padding: 0.5rem !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .row-sm {
+    padding: 1.5rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    height: 4.5rem !important;
+    width: 4.5rem !important;
+  }
+
+  .row-sm {
+    padding: 1.2rem !important;
   }
 }
