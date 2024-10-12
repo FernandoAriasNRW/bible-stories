@@ -82,7 +82,7 @@ export class CardsComponent implements OnInit {
       // Verificar si hay un match
       setTimeout(() => {
         this.checkForMatch();
-      }, 1000); // Tiempo para mostrar la tarjeta antes de revertir
+      }, 3000); // Tiempo para mostrar la tarjeta antes de revertir
     }
   }
 
