@@ -185,7 +185,7 @@ export class CardsComponent implements OnInit {
 
     this.cards = [...selectedFront, ...selectedBack];
 
-    this.cards.sort((a, b) => a.order - b.order)
+    this.cards.sort((a, b) => a.order - b.order);
 
     this.cards = this.cards.map((c, i) => {
       c.order = i + 1;
